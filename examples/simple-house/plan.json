@@ -1,0 +1,83 @@
+{
+ "meta": {
+  "house": "Fictional example house: single storey, gable roof with a cross gable, living room open to the roof",
+  "units": "cm",
+  "frame": "x = 0 at the west outer face, x grows east (drawing right); y = 0 at the south outer face, y grows north (drawing up); z = 0 finished ground floor (+-0.00)",
+  "orientation": "drawing up = north (P-0 site plan north arrow)",
+  "sheets": {"P-1": "ground floor plan 1:100", "P-2": "roof plan", "P-3": "section A-A", "P-4": "elevations", "D": "description with the room table"},
+  "scan": "sources/plan_ground.jpg",
+  "calibration": {"px_x0": 300.0, "px_y0": 1420.0, "px_per_cm_x": 1.1950, "px_per_cm_y": 1.1890,
+                  "src": "tools/calibrate.py on the 1200 (bottom) and 900 (left) overall chains of P-1"},
+  "plaster_cm": 1.5,
+  "area_rule": "table area = structural interior minus 1.5 cm plaster per face (checked on 0.03, 0.04, 0.05)"
+ },
+ "wall_types": {
+  "ext": {"thickness": 44, "layers": "24 structure + 20 EPS outside", "src": "P-1 chains 20|24, D wall build-up"},
+  "lb": {"thickness": 24, "layers": "24 structure", "src": "P-1 chains"},
+  "part": {"thickness": 12, "layers": "12 partition", "src": "P-1 chains"}
+ },
+ "walls": [
+  {"id": "W_south", "type": "ext", "x0": 0, "y0": 0, "x1": 1200, "y1": 44, "src": "P-1 bottom chain 1200, left chain 44"},
+  {"id": "W_north", "type": "ext", "x0": 0, "y0": 856, "x1": 1200, "y1": 900, "src": "P-1 left chain 44|812|44"},
+  {"id": "W_west", "type": "ext", "x0": 0, "y0": 44, "x1": 44, "y1": 856, "src": "P-1 bottom chain 44"},
+  {"id": "W_east", "type": "ext", "x0": 1156, "y0": 44, "x1": 1200, "y1": 856, "src": "P-1 bottom chain 44"},
+  {"id": "LB_hall_w", "type": "lb", "x0": 700, "y0": 44, "x1": 724, "y1": 856, "src": "P-1 bottom chain row 2: 656|24"},
+  {"id": "P_hall_e", "type": "part", "x0": 844, "y0": 44, "x1": 856, "y1": 856, "src": "P-1 bottom chain row 2: 120|12"},
+  {"id": "P_bed1_n", "type": "part", "x0": 856, "y0": 400, "x1": 1156, "y1": 412, "src": "P-1 right chain: 356|12"},
+  {"id": "P_bath_n", "type": "part", "x0": 856, "y0": 600, "x1": 1156, "y1": 612, "src": "P-1 right chain: 188|12"}
+ ],
+ "openings": [
+  {"id": "O_entry", "kind": "door", "exterior": true, "x0": 734, "y0": 0, "x1": 834, "y1": 44, "w": 100, "h": 210, "sill": 0, "src": "P-1 label 100/210; P-4 south elevation"},
+  {"id": "O_living_s", "kind": "window", "exterior": true, "x0": 150, "y0": 0, "x1": 550, "y1": 44, "w": 400, "h": 230, "sill": 0, "src": "P-1 label 400/230 (sliding terrace door)"},
+  {"id": "O_living_w", "kind": "window", "exterior": true, "x0": 0, "y0": 250, "x1": 44, "y1": 650, "w": 400, "h": null, "sill": 0, "shape": "to_roof", "below_roof": 25, "src": "P-1 left chain 400; P-4 west elevation: glazing from +-0.00 up to 25 cm under the roof slopes"},
+  {"id": "O_kitchen_n", "kind": "window", "exterior": true, "x0": 120, "y0": 856, "x1": 300, "y1": 900, "w": 180, "h": 110, "sill": 95, "src": "P-1 label 180/110, sill 95 (P-4)"},
+  {"id": "O_bed1_s", "kind": "window", "exterior": true, "x0": 930, "y0": 0, "x1": 1080, "y1": 44, "w": 150, "h": 150, "sill": 80, "src": "P-1 label 150/150, sill 80"},
+  {"id": "O_bed1_e", "kind": "window", "exterior": true, "x0": 1156, "y0": 150, "x1": 1200, "y1": 300, "w": 150, "h": 150, "sill": 80, "src": "P-1 label 150/150, sill 80"},
+  {"id": "O_bath_e", "kind": "window", "exterior": true, "x0": 1156, "y0": 470, "x1": 1200, "y1": 540, "w": 70, "h": 60, "sill": 160, "src": "P-1 label 70/60, sill 160"},
+  {"id": "O_bed2_n", "kind": "window", "exterior": true, "x0": 930, "y0": 856, "x1": 1080, "y1": 900, "w": 150, "h": 150, "sill": 80, "src": "P-1 label 150/150, sill 80"},
+  {"id": "D_living", "kind": "door", "exterior": false, "x0": 700, "y0": 120, "x1": 724, "y1": 210, "w": 90, "h": 210, "sill": 0, "src": "P-1 label 90/210"},
+  {"id": "D_bed1", "kind": "door", "exterior": false, "x0": 844, "y0": 290, "x1": 856, "y1": 370, "w": 80, "h": 210, "sill": 0, "src": "P-1 label 80/210"},
+  {"id": "D_bath", "kind": "door", "exterior": false, "x0": 844, "y0": 470, "x1": 856, "y1": 550, "w": 80, "h": 210, "sill": 0, "src": "P-1 label 80/210"},
+  {"id": "D_bed2", "kind": "door", "exterior": false, "x0": 844, "y0": 680, "x1": 856, "y1": 760, "w": 80, "h": 210, "sill": 0, "src": "P-1 label 80/210"}
+ ],
+ "rooms": [
+  {"id": "0.01", "name": "Hall", "table_m2": 9.47, "rects": [[724, 44, 844, 856]]},
+  {"id": "0.02", "name": "Living + kitchen", "table_m2": 52.83, "rects": [[44, 44, 700, 856]]},
+  {"id": "0.03", "name": "Bedroom", "table_m2": 10.48, "rects": [[856, 44, 1156, 400]]},
+  {"id": "0.04", "name": "Bathroom", "table_m2": 5.49, "rects": [[856, 412, 1156, 600]]},
+  {"id": "0.05", "name": "Bedroom", "table_m2": 7.16, "rects": [[856, 612, 1156, 856]]}
+ ],
+ "totals": {"usable_m2": 85.43, "footprint_m2": 108.0, "envelope_cm": [1200, 900], "src": "D: building data"},
+ "expected": {"ridge_z": 701, "height_above_ground": 731, "pitch_deg": 40, "src": "P-2, P-3: ridge +7.01, 7.31 m above the ground at -0.30, 40 deg"},
+ "levels": {
+  "ground_outside": {"z": -30, "src": "P-3"},
+  "floor": {"z": 0, "src": "P-3 +-0.00"},
+  "ceiling": {"z": 260, "src": "P-3 +2.60, room height 260"},
+  "wall_plate": {"z": 280, "src": "P-3: wall plate on the slab at +2.80"}
+ },
+ "inner_rects": [[44, 44, 1156, 856]],
+ "slab": {"z0": 260, "z1": 280, "src": "P-3: 20 cm RC slab"},
+ "voids": [
+  {"id": "void_living", "x0": 44, "y0": 44, "x1": 450, "y1": 856, "src": "P-1 'outline of ceiling' 406 from the west wall; P-3"}
+ ],
+ "attic_walls": [
+  {"id": "attic_wall_void", "x0": 450, "y0": 44, "x1": 470, "y1": 856, "src": "P-3: 20 cm stud wall along the void edge, slab to roof"}
+ ],
+ "roof": {
+  "pitch_deg": 40, "thickness": 35, "src": "P-2 roof plan; P-3 roof build-up ~35 cm",
+  "wings": [
+   {"id": "main", "x0": -50, "y0": -40, "x1": 1250, "y1": 940, "ridge_axis": "x", "ridge_z": 701, "src": "P-2: 50 cm gable overhangs, 40 cm eave overhangs, ridge +7.01 along E-W"},
+   {"id": "cross_gable", "x0": 430, "y0": -40, "x1": 770, "y1": 450, "ridge_axis": "y", "ridge_z": 433, "src": "P-2: cross gable over the entrance, 340 wide, ridge +4.33"}
+  ],
+  "stacks": [
+   {"id": "chimney", "x0": 690, "y0": 760, "x1": 734, "y1": 804, "top": 760, "src": "P-2: 44x44, top +7.60"}
+  ]
+ },
+ "variants": {
+  "B": {
+   "src": "owner change: kitchen open to the roof as well (sketch on P-1, dims stated by owner)",
+   "voids_change": {"void_living": {"x1": 690, "src": "owner: void up to the hall wall, 10 cm short of it"}},
+   "attic_walls_change": {"attic_wall_void": {"x0": 690, "x1": 710, "src": "moves with the void edge"}}
+  }
+ }
+}

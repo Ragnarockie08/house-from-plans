@@ -1,0 +1,17 @@
+{
+ "frame": "metres, Blender frame: x east, y north, z up, origin SW outer corner",
+ "sun": {"elevation_deg": 38, "azimuth_deg": 225, "note": "mid-afternoon from the SW; use the plot's latitude and the real north"},
+ "shots": [
+  {"id": "01_plan_top", "label": "Plan, cut at 1.20 m", "kind": "ORTHO",
+   "pos": [6.0, 4.5, 30.0], "target": [6.0, 4.5, 0.0], "ortho_scale": 13.5,
+   "clip_start": 28.8, "hide": ["roof", "slab"], "res": [1500, 1200]},
+  {"id": "02_aerial_entry", "label": "From the entrance", "kind": "PERSP",
+   "pos": [17.0, -11.0, 7.5], "target": [6.0, 4.5, 2.0], "lens": 35, "res": [1800, 1200]},
+  {"id": "03_living_gable", "label": "Living room to the glazed gable", "kind": "PERSP",
+   "pos": [5.6, 6.2, 1.6], "target": [0.4, 4.5, 2.9], "lens": 20, "res": [1800, 1200], "exposure": 1.2},
+  {"id": "04_hall", "label": "Hall from the entrance", "kind": "PERSP",
+   "pos": [7.84, 0.9, 1.6], "target": [7.84, 8.0, 1.4], "lens": 20, "res": [1800, 1200], "exposure": 1.2},
+  {"id": "05_section_AA", "label": "Section A-A, looking west", "kind": "SECTION", "section_x": 3.0, "keep": "west",
+   "pos": [25.0, 4.5, 3.6], "target": [0.0, 4.5, 3.6], "ortho_scale": 11.5, "res": [1800, 1200]}
+ ]
+}
